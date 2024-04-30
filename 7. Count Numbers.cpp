@@ -9,25 +9,16 @@ using namespace std;
 
 void solve()
 {
-    string a;
-    getline(cin, a);
+    string s;
+    getline(cin, s);
     
-    int count = 0;
-    int flag = 0;
-    
-    for (int i = 0; i < a.size(); ++i)
+    int ans = 0;
+    for (int i = 0; i < s.size(); ++i)
     {
-        if (((a[i] >= '0' && a[i] <= '9') || a[i] == '-') && flag == 0)
-        {
-            count++;
-            flag = 1;
-        }
-        else if (!((a[i] >= '0' && a[i] <= '9') || a[i] == '-') && flag == 1)
-        {
-            flag = 0;
-        }
+        if(isdigit(s[i]) && (s[i + 1] == ' ' || i == s.size() - 1)) ans++;
     }
-    cout << count << endl;
+    
+    cout << ans << "\n";
 }
 
 int main()
